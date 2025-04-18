@@ -26,7 +26,7 @@ Each unit is contained within its own directory, each with its own write-up and 
 We welcome contributions! If you have a new unit or an improvement to an existing one, feel free to open a pull request. Please ensure your code is well-documented and code is well-formatted.
 
 ## License
-tbd
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Support
 If you have any questions or need help, feel free to open an issue on GitHub.

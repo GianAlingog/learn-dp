@@ -54,4 +54,4 @@ We can gain further understanding of this concept through this diagram:
 Note that if we all we require is the nth fibonacci number, then there exist further optimizations: *space optimization*, with time O(n), space O(1); and *matrix exponentation*, with time O(log(n)), space O(log(n)).
 
 ### States and Transitions
-A common way to think about dynamic programming is through the idea of *states* and *transitions*.`
+A common way to think about dynamic programming is through the idea of *states* and *transitions*.

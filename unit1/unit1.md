@@ -125,8 +125,8 @@ ll solve(ll bound) {
 }
  
 void solution() {
-    ofstream fout ("odometer.out");
-    ifstream fin ("odometer.in");
+	ofstream fout ("odometer.out");
+	ifstream fin ("odometer.in");
 
 	ll x, y; fin >> x >> y;
 	fout << solve(y) - solve(x - 1) << endl;

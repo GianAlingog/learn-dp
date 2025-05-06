@@ -6,26 +6,26 @@
 ### Worked Example: USACO 2014 Open, Silver - Problem 3: Odometer
 <a href="https://usaco.org/index.php?page=viewproblem2&cpid=435">Problem Statement</a>
 
-The problem requires us to count how many interesting numbers lie in the range [X, Y]. An interesting number is defined to be a number with at least half of its digits being the same.
+The problem requires us to count how many ***interesting numbers*** lie in the range `[X, Y]`. An ***interesting number*** is defined to be a number with at least half of its digits being the same.
 
-A naive solution would be to loop through all numbers from X to Y, and checking on each iteration, if the number is interesting. However, it's quite clear that this would be too slow, given that the runtime is O(N), where N is defined to be the absolute value difference of X and Y.
+A naive solution would be to loop through all numbers from `X` to `Y`, and checking on each iteration, if the number is interesting. However, it's quite clear that this would be too slow, given that the runtime is `O(N)`, where `N` is defined to be the absolute value difference of `X` and `Y`.
 
-We can instead approach this problem with Dynamic Programming, specifically Digit DP. Let's jump right into what it looks like, so we can get a better understanding.
+We can instead approach this problem with *Dynamic Programming*, specifically **Digit DP**. Let's jump right into what it looks like, so we can get a better understanding.
 
 Let our state be `dp[pos][cnt][under][zero]`. There's a lot to unpack here, so let me break down each part:
-- pos - current position in our number (this is capped by 18, as 10<sup>18</sup> is the upper bound; there are 18 digits at most)
-- cnt - running count of the number of digits that are the same
-- under - upper-bound control (more on this later)
-- zero - leading zero (note that true denotes that we have a non-zero digit)
+- `pos` - current position in our number (this is capped by 18, as 10<sup>18</sup> is the upper bound; there are 18 digits at most)
+- `cnt` - running count of the number of digits that are the same
+- `under` - upper-bound control (more on this later)
+- `zero` - leading zero (note that true denotes that we have a non-zero digit)
 
 At each position, we will try setting it to all numbers 0 through 9, and checking if this results in an interesting number. Particularly, we will try  The transition is as follows:
-- Let d be the digit we are setting at the current position
-- If d is less than the pos-th digit of our upper bound, then we set under to true.
-- If d is non-zero, set zero to true
-- If d is equal to our interesting digit, increment cnt by 1
-- If cnt is greater than (pos + 1) / 2, then we know that this number is interesting and we can increment our answer by 1
+- Let `d` be the digit we are setting at the current position
+- If `d` is less than the `pos`-th digit of our upper bound, then we set `under` to `true`.
+- If `d` is non-zero, set zero to `true`
+- If `d` is equal to our interesting digit, increment `cnt` by 1
+- If `cnt` is greater than `(pos + 1) / 2`, then we know that this number is interesting and we can increment our answer by 1
 
-One last observation we need to make is that instead of handling the range [X, Y] we can instead take the difference of the ranges[0, Y] and [0, X).
+One last observation we need to make is that instead of handling the range `[X, Y]` we can instead take the difference of the ranges `[0, Y]` and `[0, X)`.
 
 Solution Code (credits USACO Guide):
 ```c++

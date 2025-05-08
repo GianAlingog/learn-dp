@@ -1,33 +1,48 @@
-# Unit 1
-## Digit DP
-### What is Digit DP?
-**Digit DP** is used to find the amount of numbers in a range [L, R] that hold a certain property.
+# Unit 1: Digit DP
+## What is Digit DP?
+**Digit DP** (Digit Dynamic Programming) is a powerful technique used to solve problems that involve counting numbers or solving for specific properties in a range of numbers, such as `[L, R]`. Instead of directly iterating over all the numbers in the range, we use dynamic programming (DP) to break down the problem into smaller subproblems. This method dramatically reduces time complexity by leveraging previously computed results.
 
 ### Worked Example: USACO 2014 Open, Silver - Problem 3: Odometer
-<a href="https://usaco.org/index.php?page=viewproblem2&cpid=435">Problem Statement</a>
 
-The problem requires us to count how many ***interesting numbers*** lie in the range `[X, Y]`. An ***interesting number*** is defined to be a number with at least half of its digits being the same.
+The problem requires us to count how many **interesting numbers** lie in the range `[X, Y]`. An **interesting number** is defined as a number where at least half of its digits are the same.
 
-A naive solution would be to loop through all numbers from `X` to `Y`, and checking on each iteration, if the number is interesting. However, it's quite clear that this would be too slow, given that the runtime is `O(N)`, where `N` is defined to be the absolute value difference of `X` and `Y`.
+You can access the problem statement [here](https://usaco.org/index.php?page=viewproblem2&cpid=435).
 
-We can instead approach this problem with *Dynamic Programming*, specifically **Digit DP**. Let's jump right into what it looks like, so we can get a better understanding.
+#### Naive Approach
 
-Let our state be `dp[pos][cnt][under][zero]`. There's a lot to unpack here, so let me break down each part:
-- `pos` - current position in our number (this is capped by 18, as 10<sup>18</sup> is the upper bound; there are 18 digits at most)
-- `cnt` - running count of the number of digits that are the same
-- `under` - upper-bound control (more on this later)
-- `zero` - leading zero (note that true denotes that we have a non-zero digit)
+A naive approach would be to simply iterate over each number in the range `[X, Y]` and check if it is **interesting**. However, this would be inefficient and result in a runtime of `O(N)`, where `N` is the number of elements in the range. This approach is not feasible for large values of `X` and `Y`.
 
-At each position, we will try setting it to all numbers 0 through 9, and checking if this results in an interesting number. Particularly, we will try  The transition is as follows:
-- Let `d` be the digit we are setting at the current position
-- If `d` is less than the `pos`-th digit of our upper bound, then we set `under` to `true`.
-- If `d` is non-zero, set zero to `true`
-- If `d` is equal to our interesting digit, increment `cnt` by 1
-- If `cnt` is greater than `(pos + 1) / 2`, then we know that this number is interesting and we can increment our answer by 1
+#### Optimized Approach: Digit DP
 
-One last observation we need to make is that instead of handling the range `[X, Y]` we can instead take the difference of the ranges `[0, Y]` and `[0, X)`.
+Instead of iterating through every number in the range, we use **Digit DP** to count the interesting numbers more efficiently.
 
-Solution Code (credits USACO Guide):
+### Dynamic Programming State Representation
+
+We define our state as:
+
+```c++
+dp[pos][cnt][under][zero]
+```
+
+#### Where:
+- `pos`: The current position (digit) in the number. This is capped at 18, because 10^18 is the upper bound, and there are at most 18 digits.
+- `cnt`: A running count of the number of digits that are the same.
+- `under`: A flag indicating whether the current number is still under the upper bound.
+- `zero`: A flag that indicates if we are considering leading zeros (i.e., if true, we've encountered a non-zero digit).
+
+#### Transition Logic
+
+At each position, we attempt to set the current digit to a value between 0 and 9 and check if the resulting number is "interesting".
+
+1. Let `d` be the digit we're considering for the current position.
+2. If `d` is less than the current digit in the upper bound, we set the `under` flag to `true`.
+3. If `d` is non-zero, we update the `zero` flag.
+4. If `d` is the same as the interesting digit, we increment the `cnt` (count of same digits).
+5. If the count `cnt` exceeds `(pos + 1) / 2`, we know this number is **interesting** and we increment the result.
+
+To count the numbers in the range `[X, Y]`, we calculate the difference of the results for the ranges `[0, Y]` and `[0, X)`.
+
+Solution Code
 ```c++
 #include <bits/stdc++.h>
 using namespace std;
@@ -137,3 +152,22 @@ signed main() {
 	solution();
 }
 ```
+
+### Key Points:
+
+- **Digit DP** helps break down counting numbers with certain properties over large ranges, which in this case we call **interesting** numbers. You will find that **interesting** numbers can often even go past 18 digits for problems with stricter properties for **interesting** numbers.
+
+#### Performance
+
+This method significantly improves the time complexity from a brute force approach (`O(N)`) to a more efficient `O(d * 2d * 2 * 2)` or `O(d)`, which is manageable for large ranges.
+
+### Conclusion
+
+Digit DP is a fascinating technique that allows us to solve complex counting problems over ranges efficiently. With this approach, we can reduce the complexity of problems that might otherwise be too slow to compute directly. This is a great tool for competitive programming and problems involving large numbers and digit-specific properties.
+
+---
+
+#### Resources:
+- [USACO - Odometer](https://usaco.org/index.php?page=viewproblem2&cpid=435)
+- [Codeforces - Digit DP Blog](https://codeforces.com/blog/entry/53960)
+- [Youtube - Introduction to Digit DP](https://www.youtube.com/watch?v=heUFId6Qd1A)

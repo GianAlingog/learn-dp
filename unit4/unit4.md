@@ -1,4 +1,10 @@
 # Unit 4
+## Prerequisites
+- Read and understand C++ code
+- Time complexity and Big O notation
+- Intermediate-level understanding of DP
+- Trees
+
 ## Tree DP
 ### What is Tree DP?
 **Tree DP** is used to perform Dynamic Programming on a tree. A tree is a unique graph which contains `n` vertices and `n-1` edges. Notably, there are no cycles in a tree, and each pair of connected vertices only have one edge connecting them. DP becomes useful on a tree when we reduce problems to subproblems with a vertex and its children.
@@ -6,10 +12,12 @@
 To help visualize this concept, let's work through two ways to go about tree DP, top-down and bottom-up.
 
 #### Top Down
-Calculating vertex depth in a rooted tree is one natural way of using tree DP. Let the root vertex have a depth of `0`, then while performing a depth first search set its children to have their depth to be `depth + 1`.
+Calculating vertex depth in a rooted tree is one natural way of using tree DP. Let the root vertex have a depth of `0`, then while performing a depth-first search set its children to have their depth to be `depth + 1`.
 
 #### Bottom Up
-Calculating subtree size in a rooted tree
+Calculating subtree size in a rooted tree is also a commonly-used method of tree DP. Let the each vertex initially have a subtree size of '1', then while performing a depth-first search, for each node, add the subtree sizes of all its children to its size.
+
+See examples in the All Roots Tree DP solution below.
 
 ### Worked Example: APIO 2018 - Problem 3: Duathlon
 <a href="https://oj.uz/problem/view/APIO18_duathlon">Problem Statement</a>
@@ -100,7 +108,7 @@ void dfs(int u, ll prev, ll subp, int p)
 - `p` is the parent of the current vertex
 
 #### Transition Logic
-In the case of our problem, because we only care about the sum of depths, its possible to rederive the solution for a given root, given the solution for its parent. Envision how the sum of depths change as we shift the root from U to V. The sum increases by the subtree size of V, not including the subtree size of U; and it will decrease by the sutreee size of V.
+In the case of our problem, because we only care about the sum of depths, its possible to rederive the solution for a given root, given the solution for its parent. Envision how the sum of depths change as we shift the root from U to V. The sum increases by the subtree size of U, not including the subtree size of V; and it will decrease by the subtree size of V.
 
 ### Solution Code
 ```c++

@@ -44,7 +44,7 @@ void generate(int mx) {
 }
 ```
 
-A quick glance might not differentiate the two implementations immediately, but on closer inspection, the time and space complexity are evidently linear O(n).
+A quick glance might not differentiate the two implementations immediately, but on closer inspection, the time and space complexity are evidently linear O(n). This is because instead of recalculating previously processed fibonacci numbers, we instead save it in `fib` and use it for further calculations.
 
 Note that if we all we require is the nth fibonacci number, then there exist further optimizations: *space optimization*, with time O(n), space O(1); and *matrix exponentation*, with time O(log(n)), space O(log(n)).
 

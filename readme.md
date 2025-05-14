@@ -13,11 +13,11 @@ Each unit is contained within its own directory, each with its own write-up and 
 
 | ID | Name                                        | Link                       |
 |----|---------------------------------------------|----------------------------|
-| 0  | Unit 0: Introduction to Dynamic Programming | [Unit 0](./unit0/)         |
-| 1  | Unit 1: Digit DP                            | [Unit 1](./unit1/)         |
-| 2  | Unit 2: Bitmask DP                          | [Unit 2](./unit2/)         |
+| 0  | Unit 0: Introduction to Dynamic Programming | [Unit 0](./unit0/unit0.md)         |
+| 1  | Unit 1: Digit DP                            | [Unit 1](./unit1/unit1.md)         |
+| 2  | Unit 2: Bitmask DP                          | [Unit 2](./unit2/unit2.md)         |
 | 3  | Unit 3: Range DP                            |                            |
-| 4  | Unit 4: Tree DP                             | [Unit 4](./unit4/)         |
+| 4  | Unit 4: Tree DP                             | [Unit 4](./unit4/unit4.md)         |
 | 5  | Unit 5: Divide and Conquer DP               |                            |
 | 6  | Unit 6: Further Reading and Extra Problems  |                            |
 

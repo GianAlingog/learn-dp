@@ -50,3 +50,12 @@ Note that if we all we require is the nth fibonacci number, then there exist fur
 
 ### States and Transitions
 A common way to think about dynamic programming is through the idea of *states* and *transitions*. A state is defined as the current state of a subproblem. In this case, it's the `i`-th fibonacci number. A transition is defined as the transition between two (or more) states, or more succinctly, the operation(s) that allow for a state to be calculated from other states. In this case, the `i`-th fibonacci number can be calculated from the `i-1` and `i-2` states.
+
+## Moving Forward
+### Prerequisites
+The further units will tackle specific types of dynamic programming. These discuss methods to solve problems with similar patterns. Even so, it is advisable that one have a solid grasp of understanding and using dynamic programming before proceeding.
+
+#### Resources:
+- [CSES - Competitive Programmer's Handbook](https://cses.fi/book/book.pdf)
+- [CSES - Problem Set](https://cses.fi/problemset/)
+- [AtCoder - Educational DP Contest](https://atcoder.jp/contests/dp/tasks)

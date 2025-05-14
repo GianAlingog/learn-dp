@@ -216,3 +216,21 @@ signed main() {
     return 0;
 }
 ```
+
+### Key Points:
+- **Tree DP** allows us to calculate subproblems for each vertex, either by utilizing a top-down or bottom-up approach (parent->children or children->parent relation).
+- **All Roots Tree DP** allows us to calculate the answer for what it would be on a tree with an arbitrarily chosen root, then generalize this base solution to find that to find the answer for the tree rooted at every other vertex. 
+
+#### Performance
+This method significantly improves the time complexity from a brute force approach (`O(N^2)`) to a more efficient `O(N + N + N)` or `O(N)`, which is manageable for larger trees.
+
+---
+
+#### Resources:
+- [APIO - Duathlon](https://oj.uz/problem/view/APIO18_duathlon)
+- [USACO Guide - Tree DP](https://usaco.guide/gold/dp-trees?lang=cpp)
+- [USACO Guide - All Roots Tree DP](https://usaco.guide/gold/all-roots?lang=cpp)
+
+#### Further Practice:
+- [Codeforces - Jeremy Bearimy](https://codeforces.com/contest/1280/problem/C)
+- [Codeforces - Miss Punyverse](https://codeforces.com/contest/problem/1280/D)

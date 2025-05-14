@@ -126,12 +126,12 @@ signed main() {
 }
 ```
 
----
-
 ### Key Points:
 - **Bitmask DP** allows efficient computation over subsets of elements using bit manipulation, storing results in a DP table for minimal computation.
 - **SOS DP** optimizes Bitmask DP by reducing the need to explicitly iterate over all subsets, thereby speeding up computations that involve subset sums or other related operations.
 - Both techniques are crucial for solving combinatorial problems with large input sizes and are commonly used in competitive programming.
+
+---
 
 #### Resources:
 - [USACO - Friendship Editing](https://usaco.org/index.php?page=viewproblem2&cpid=1499)

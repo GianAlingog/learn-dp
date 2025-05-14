@@ -44,14 +44,9 @@ void generate(int mx) {
 }
 ```
 
-
 A quick glance might not differentiate the two implementations immediately, but on closer inspection, the time and space complexity are evidently linear O(n).
-
-We can gain further understanding of this concept through this diagram:
-
---insert stack trace structure diagram--
 
 Note that if we all we require is the nth fibonacci number, then there exist further optimizations: *space optimization*, with time O(n), space O(1); and *matrix exponentation*, with time O(log(n)), space O(log(n)).
 
 ### States and Transitions
-A common way to think about dynamic programming is through the idea of *states* and *transitions*.
+A common way to think about dynamic programming is through the idea of *states* and *transitions*. A state is defined as the current state of a subproblem. In this case, it's the `i`-th fibonacci number. A transition is defined as the transition between two (or more) states, or more succinctly, the operation(s) that allow for a state to be calculated from other states. In this case, the `i`-th fibonacci number can be calculated from the `i-1` and `i-2` states.

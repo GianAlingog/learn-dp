@@ -208,4 +208,4 @@ Digit DP is a fascinating technique that allows us to solve complex counting pro
 - [Youtube - Introduction to Digit DP](https://www.youtube.com/watch?v=heUFId6Qd1A)
 
 #### Further Practice:
-- [Codeforces - EDU177E](https://codeforces.com/contest/2086/problem/E)
+- [Codeforces - Zebra-like Numbers](https://codeforces.com/contest/2086/problem/E)

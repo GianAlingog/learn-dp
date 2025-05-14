@@ -24,7 +24,6 @@ We define our state as:
 dp[pos][cnt][under][zero]
 ```
 
-#### Where:
 - `pos`: The current position (digit) in the number. This is capped at 18, because 10^18 is the upper bound, and there are at most 18 digits.
 - `cnt`: A running count of the number of digits that are the same.
 - `under`: A flag indicating whether the current number is still under the upper bound.
@@ -50,12 +49,14 @@ typedef long long ll;
 #define endl "\n"
 #define sp <<" "<<
 
+// See Dynamic Programming State Representation
+// dp[pos][cnt][under][zero]
 ll dp[19][42][2][2];
 string num;
 
 void clean() {
 	for (int i = 0; i < 19; i++) {
-		for (int j = 0; j < 50; j++) {
+		for (int j = 0; j < 42; j++) {
 			for (int k = 0; k < 2; k++) {
 				for (int l = 0; l < 2; l++) {
 					dp[i][j][k][l] = -1;
@@ -65,12 +66,22 @@ void clean() {
 	}
 }
 
+// See Transition Logic
 ll work(int pos, int cnt, bool under, bool zero, int f1, int f2) {
+	// We are at the end of the number
 	if (pos == num.size()) {
 		if (!zero) {
 			return 0;
 		}
 
+		// This allows our implementation to not need to check
+		// for the length of the current number and instead
+		// check if it there are more than or equal to half of
+		// the digits by checking if it is greater than or
+		// equal to 20, which we initialized it to.
+
+		// If the count cnt exceeds (pos + 1) / 2, we know this
+		// number is interesting and we increment the result.
 		if (f2 != -1) {
 			if (cnt == 20) {
 				return 1;
@@ -86,25 +97,36 @@ ll work(int pos, int cnt, bool under, bool zero, int f1, int f2) {
 		}
 	}
 
+	// This is what makes DP possible!
+	// If we have already calculated the answer to this subproblem,
+	// simply return it - no calculations need to be made.
 	if (dp[pos][cnt][under][zero] != -1) {
 		return dp[pos][cnt][under][zero];
 	}
 
 	ll ans = 0;
 	for (int i = 0; i <= 9; i++) {
-		int dig = num[pos] - '0';
+		// Let d be the digit we're considering for the
+		// current position.
+		int d = num[pos] - '0';
 
-		if (!under and i > dig) {
+		// If d is less than the current digit in the
+		// upper bound, we set the under flag to true.
+		if (!under and i > d) {
 			break;
 		}
+		bool n_under = under or (i < d);
 
-		bool n_under = under or (i < dig);
+		// If d is non-zero, we update the zero flag.
 		bool n_zero = zero or i != 0;
 
+		// Discard non-interesting candidates
 		if (n_zero and f2 != -1 and i != f1 and i != f2) {
 			continue;
 		}
 
+		// If d is the same as the interesting digit,
+		// we increment the cnt (count of same digits).
 		int n_cnt = cnt;
 		if (n_zero) {
 			if (f1 == i) {
@@ -121,6 +143,11 @@ ll work(int pos, int cnt, bool under, bool zero, int f1, int f2) {
 }
 
 ll solve(ll bound) {
+	// Note that we are initializing cnt to 20 instead of 0
+	// This is because we want to add to our count if we have
+	// an occurrence of our interesting digit, but subtract 
+	// if we have an occurrence of any other digit
+	// See work() function for more details
 	num = to_string(bound);
 	ll ans = 0;
 	for (int i = 0; i <= 9; i++) {
@@ -128,6 +155,8 @@ ll solve(ll bound) {
 		ans += work(0, 20, false, false, i, -1);
 	}
 
+	// Account for duplicate answers when two distinct 
+	// digits i, j occupy exactly n/2 digits
 	ll dup = 0;
 	for (int i = 0; i <= 9; i++) {
 		for (int j = 0; j <= 9; j++) {
@@ -143,6 +172,7 @@ void solution() {
 	ofstream fout ("odometer.out");
 	ifstream fin ("odometer.in");
 
+	//
 	ll x, y; fin >> x >> y;
 	fout << solve(y) - solve(x - 1) << endl;
 }
@@ -171,3 +201,6 @@ Digit DP is a fascinating technique that allows us to solve complex counting pro
 - [USACO - Odometer](https://usaco.org/index.php?page=viewproblem2&cpid=435)
 - [Codeforces - Digit DP Blog](https://codeforces.com/blog/entry/53960)
 - [Youtube - Introduction to Digit DP](https://www.youtube.com/watch?v=heUFId6Qd1A)
+
+#### Further Practice:
+- [Codeforces - EDU177E](https://codeforces.com/contest/2086/problem/E)

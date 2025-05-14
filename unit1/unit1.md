@@ -2,7 +2,7 @@
 ## Prerequisites
 - Read and understand C++ code
 - Time complexity and Big O notation
-- Have an intermediate-level understanding of DP
+- Intermediate-level understanding of DP
 
 ## What is Digit DP?
 **Digit DP** (Digit Dynamic Programming) is a powerful technique used to solve problems that involve counting numbers or solving for specific properties in a range of numbers, such as `[L, R]`. Instead of directly iterating over all the numbers in the range, we use dynamic programming (DP) to break down the problem into smaller subproblems. This method dramatically reduces time complexity by leveraging previously computed results.

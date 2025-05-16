@@ -41,21 +41,21 @@ Here's code that will generate up to the nth fibonacci number on every call. For
 ```c++
 vector<long long> memo = {1LL, 1LL};
 
-long long fib(int i) {
+long long calc(int i) {
     if (memo[i] != -1LL) {
         return memo[i];
     }
 
-    return memo[i] = fib(i - 1) + fib(i - 2);
+    return memo[i] = calc(i - 1) + calc(i - 2);
 }
 
-long long generate(int mx) {
+long long fib(int mx) {
     if (mx < 2 || mx < memo.size())
-        return fib(mx);
+        return calc(mx);
     int prevSize = memo.size();
-    fib.resize(mx+1);
+    memo.resize(mx+1);
     fill(memo.begin() + prevSize, memo.end(), -1LL);
-    return fib(mx);
+    return calc(mx);
 }
 ```
 

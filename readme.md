@@ -27,7 +27,7 @@ Each unit is contained within its own directory, each with its own write-up and 
 | 0  | Unit 0: Introduction to Dynamic Programming | [Unit 0](./unit0/unit0.md) |
 | 1  | Unit 1: Digit DP                            | [Unit 1](./unit1/unit1.md) |
 | 2  | Unit 2: Bitmask DP                          | [Unit 2](./unit2/unit2.md) |
-| 3  | Unit 3: Tree DP                             | [Unit 3](./unit4/unit4.md) |
+| 3  | Unit 3: Tree DP                             | [Unit 3](./unit3/unit3.md) |
 | 4  | Unit 4: Divide and Conquer DP               | TODO                       |
 | 5  | Unit 5: Further Reading and Extra Problems  | TODO                       |
 

@@ -217,8 +217,8 @@ exclude:
   - "package*.json"
 
 extra:
-css:
-  - "/assets/css/custom.css"
+  css:
+    - "/assets/css/custom.css"
 
 jekyll-archives:
   enabled: [categories, tags]

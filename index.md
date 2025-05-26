@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 ---
 
 # Optimizing Optimizations: Making Dynamic Programming Even Faster

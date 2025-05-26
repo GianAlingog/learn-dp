@@ -34,16 +34,3 @@ section {
 .wrapper > footer {
   flex-shrink: 0;
 }
-
-@media print, screen and (max-width: 960px) {
-  header, footer {
-    width: 100%;
-    float: none;
-    margin-bottom: 20px;
-  }
-
-  section {
-    width: 100%;
-    margin-left: 0;
-  }
-}

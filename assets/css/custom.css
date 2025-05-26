@@ -1,12 +1,12 @@
 .wrapper {
-    width: 80% !important;
+    width: 100% !important;
 }
 
 section {
-    width: 80% !important;
+    width: 75% !important;
 }
 
 header, footer {
-    width: 20% !important;
+    width: 15% !important;
     box-sizing: border-box;
 }

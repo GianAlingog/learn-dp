@@ -1,3 +1,11 @@
 section {
     width: 1000px !important; /* Static for now */
 }
+
+header {
+    position: relative !important;
+}
+
+footer {
+    position: relative !important;
+}

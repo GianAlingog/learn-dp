@@ -1,3 +1,7 @@
+---
+layout: home
+---
+
 # Optimizing Optimizations: Making Dynamic Programming Even Faster
 This project aims to explore dynamic programming as an optimization for large-scale computations, less commonly known subsets of dynamic programming, and further dynamic programming optimizations, such as Divide and Conquer DP.
 

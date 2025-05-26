@@ -3,10 +3,9 @@
 }
 
 section {
-    width: 75% !important;
+    width: 80% !important;
 }
 
 header, footer {
     width: 15% !important;
-    box-sizing: border-box;
 }

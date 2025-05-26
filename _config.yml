@@ -99,6 +99,9 @@ theme_mode: dark # [light | dark]
 # e.g. 'https://cdn.com'
 cdn: "https://chirpy-img.netlify.app"
 
+head:
+  - link: "/assets/css/custom.css"
+
 # the avatar on sidebar, support local or CORS resources
 avatar: "/commons/avatar.jpg"
 

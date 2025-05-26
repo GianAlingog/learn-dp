@@ -29,6 +29,7 @@ long long fib(int i) {
 ```
 
 To better understand the time complexity, see the following diagram:
+
 ![fibonacci O(2^n) diagram](./fib1.png)
 
 As you can see, each call to `fib` generates two more recursive calls to `fib`, save for `fib(1)` and `fib(0)`. For the example, `fib(5)`, we can see that the recursive calls form an almost complete binary tree. A complete binary tree has 2<sup>(n+1)</sup>-1 nodes. It becomes clear that this is the upper bound for the time complexity of this recursive implementation. In the proper Big O notation for time complexity, it would then be O(2<sup>n</sup>).
@@ -62,6 +63,7 @@ long long fib(int mx) {
 A quick glance might not differentiate the two implementations immediately, but on closer inspection, the time and space complexity are evidently linear O(n). This is because instead of recalculating previously processed fibonacci numbers, we instead save it in `memo` and use it for further calculations.
 
 See the following diagram for reference:
+
 ![fibonacci O(n) diagram](fib2.png)
 
 All calls to `fib` that are crossed out are calls that perform no calculations, but instead simply access the answer for that call that we've already saved, which reduces the time complexity of these calls to O(1). As seen in the diagram, we only need to compute the answer for n+1 calls (in reality, it's n-1 because `fib(0)` and `fib(1)` are base cases). In Big O notation, this comes out to O(n).

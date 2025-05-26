@@ -9,3 +9,11 @@ section {
 header, footer {
     width: 15% !important;
 }
+
+.rouge-gutter {
+    width: 10px !important;
+}
+
+img {
+    max-height: 500px !important;
+}

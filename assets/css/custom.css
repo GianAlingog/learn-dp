@@ -1,11 +1,49 @@
-section {
-    width: 1000px !important; /* Static for now */
-}
 
 header {
-    position: relative !important;
+  width: 270px;
+  float: left;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  position: relative;
 }
 
 footer {
-    position: relative !important;
+  width: 270px;
+  float: left;
+  padding-top: 20px;
+  position: relative;
+  bottom: 50px;
+  margin-top: 20px;
+}
+
+section {
+  margin-left: 270px;
+  padding-bottom: 50px;
+  width: calc(100% - 270px);
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.wrapper > header,
+.wrapper > section,
+.wrapper > footer {
+  flex-shrink: 0;
+}
+
+@media print, screen and (max-width: 960px) {
+  header, footer {
+    width: 100%;
+    float: none;
+    margin-bottom: 20px;
+  }
+
+  section {
+    width: 100%;
+    margin-left: 0;
+  }
 }

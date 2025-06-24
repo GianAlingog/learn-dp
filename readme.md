@@ -5,9 +5,6 @@ This project aims to explore dynamic programming as an optimization for large-sc
 ### Author
 Gian Alingog
 
-### Content Advisor
-Nick Zufelt
-
 ## Using this Repository
 Each unit is contained within its own directory, each with its own write-up and any necessary sample code snippets and diagrams.
 
